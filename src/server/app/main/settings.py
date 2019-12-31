@@ -15,7 +15,7 @@ LOG_LEVEL = env.str("LOG_LEVEL", "INFO")
 LOG_DIR = env.str("LOG_DIR", "/tmp")
 APP_LOG_NAME = env.str("APP_LOG_NAME", "app.log")
 WWW_LOG_NAME = env.str("WWW_LOG_NAME", "www.log")
-LOG_MAX_BYTES = env.int("LOG_MAX_BYTES", 100_000_000)  # 100MB in bytes
+LOG_MAX_BYTES = env.int("LOG_MAX_BYTES", 100000000)  # 100MB in bytes
 LOG_COPIES = env.int("LOG_COPIES", 5)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
