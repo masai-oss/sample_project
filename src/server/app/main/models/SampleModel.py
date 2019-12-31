@@ -12,7 +12,7 @@ class ParentModel_1(db.Model, Base):
     __tablename__ = 'parent_1'
 
     id = Column(db.Integer, primary_key=True)
-    name = Column(db.String(80), nullable=False)
+        
     created_at = Column(db.DateTime(timezone=True),
                 nullable=False, default=datetime.datetime.now())
     children = relationship("ChildModel_1")
@@ -54,12 +54,13 @@ association_table = Table('association', db.Model.metadata,
     Column('right_id', Integer, ForeignKey('right.id'))
 )
 
-class ParentModel_4(db.Model):
+class ParentModel_4(db.Model, Base):
     __tablename__ = 'left'
     id = Column(Integer, primary_key=True)
+    name = Column(db.String(80), nullable=True)
     children = relationship("ChildModel_4",
                     secondary=association_table)
 
-class ChildModel_4(db.Model):
+class ChildModel_4(db.Model, Base):
     __tablename__ = 'right'
     id = Column(Integer, primary_key=True)

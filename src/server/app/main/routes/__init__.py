@@ -1,7 +1,7 @@
 from app.main.routes.auth_controller import UserLogin, LogoutAPI, UserSignUp, FacebookAuthorize, GithubAuthorize
 from app.main import api
 
-from app.main.routes.sample_routes import OneToMany
+from app.main.routes.sample_routes import OneToMany, ManyToMany, ManyToManyChild
 
 
 def add_resources(app):
@@ -17,6 +17,8 @@ def add_resources(app):
     api.add_resource(FacebookAuthorize, '/facebook')
     api.add_resource(GithubAuthorize, '/github')
     api.add_resource(OneToMany, '/onetomany')
+    api.add_resource(ManyToMany, '/manytomany')
+    api.add_resource(ManyToManyChild, '/manytomanychild')
 
 def register_blueprints(app):
     """
