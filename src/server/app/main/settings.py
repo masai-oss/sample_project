@@ -6,6 +6,26 @@ from environs import Env, EnvError
 
 env = Env()
 env.read_env()
+SECRET_KEYS = dict(
+    github_consumer_key=os.getenv(
+        "GITHUB_CONSUMER_KEY", "my_precious_secret_key"
+    ),
+    github_consumer_secret=os.getenv(
+        "GITHUB_CONSUMER_SECRET", "my_precious_secret_key"
+    ),
+    facebook_consumer_key=os.getenv(
+        "FACEBOOK_CONSUMER_KEY", "my_precious_secret_key"
+    ),
+    facebook_consumer_secret=os.getenv(
+        "FACEBOOK_CONSUMER_SECRET", "my_precious_secret_key"
+    ),
+    google_consumer_key=os.getenv(
+        "GOOGLE_CONSUMER_KEY", "my_precious_secret_key"
+    ),
+    google_consumer_secret=os.getenv(
+        "GOOGLE_CONSUMER_SECRET", "my_precious_secret_key"
+    ),
+)
 
 # Logging Setup
 LOG_TYPE = env.str("LOG_TYPE", "watched")  # Default is a Stream handler
@@ -29,10 +49,13 @@ class Config:
 class DevelopmentConfig(Config):
     # uncomment the line below to use postgres
     # SQLALCHEMY_DATABASE_URI = postgres_local_base
+    # uncomment the line below to use mysql
+    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://<user>:<password>@<host>:<port>/<database_name>'
+
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(
-        basedir, "flask_boilerplate.db"
-    )
+    # SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(
+    #     basedir, "flask_boilerplate.db"
+    # )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     LOG_TYPE = LOG_TYPE
     LOG_LEVEL = LOG_LEVEL
