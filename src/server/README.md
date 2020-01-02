@@ -249,9 +249,12 @@ def get_github_token():
         return g.access_token
 
 ```
+### To use OAuth in the application
+
+Add the required tokens/credentials as specified under `SECRET_KEYS` in `settings.py` to environment variables.
+
 
 ### To create logs
-
 1. import current_app from flask
 
 2. log messages based on the level of logs
