@@ -1,18 +1,21 @@
-# Backend Guide
+# Back-end Guide
 
-After cloning follow the steps to setup
-1. Create virtual environment with Pyenv/virtualenv for python
-2. pip install -r requirements.txt
+## Requirements
+1. Setup the database server based on the project requirement
+
+### After cloning follow the steps to setup
+
+1. Create virtual environment with `pipenv/virtualenv` for python version 3.7.3 (or higher)
+2. Activate the virtual environment `source <virtual_environment_name>/bin/activate`
+3. `pip install -r requirements.txt`
 
 ### To start the server
 ``` python manage.py run ```
 
-### To migrate the databsae
-1. python manage.py db init
-2. python manage.py db migrate
-3. python manage.py db upgrade
+
 
 ### To add the models
+
 1. Create {model}.py files in the models folder
 
    Example
@@ -39,7 +42,7 @@ After cloning follow the steps to setup
        password_hash = db.Column(db.String(100))
    ```
 
-2. import the same file in the models/init.py 
+2. import the same file in the `models/__init__.py` 
 
    ##### Example
 
@@ -49,6 +52,27 @@ After cloning follow the steps to setup
    ```
 
 3. run the db migrate and upgrade command again
+
+### To migrate the database
+
+##### To change the DB settings
+
+1. Create data-base in respective server
+2. Open the `settings.py` in the root folder
+3. Change the database URI in `SQLALCHEMY_DATABASE_URI` based on the development env
+
+##### To create migrations folder
+
+1. `python manage.py db init`
+
+##### To make the migrations
+
+1. `python manage.py db stamp head`
+2. `python manage.py migrate`
+3. `python manage.py db upgrade`
+4. make a migration every time you make a change to the models
+
+P.S: To make the migrations easier use `make migrate` command
 
 
 ### To create the routes
@@ -107,7 +131,7 @@ After cloning follow the steps to setup
 
    
 
-2. import the file into routes/init.py
+2. import the file into `routes/__init__.py`
 
 3. if the routes are blueprint then register the blueprint under 'register_blueprints' function in the init.py files
 
@@ -197,7 +221,7 @@ def get_all_users():
 
 
 
-### To create the utils functionality
+### To create the utility functionality
 Add the utility functions in the 'utils' folder.
 
 ##### Example
@@ -277,7 +301,3 @@ def get_github_token():
    ```
 
    
-
-### To change the DB settings 
-1. Open the settings.py in the root folder
-2. Change the database URI in SQLALCHEMY_DATABASE_URI based on the development env
