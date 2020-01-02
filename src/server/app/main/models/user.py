@@ -1,10 +1,11 @@
+# flake8: noqa
 """ Model for user """
 
 from app.main import flask_bcrypt, db
 import datetime
 import jwt
 from app.main.settings import key
-# from .. import db, flask_bcrypt, login_manage
+
 
 class User(db.Model):
     """
@@ -14,6 +15,7 @@ class User(db.Model):
         UserMixin ([type]): [description]
         db ([type]): [description]
     """
+
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -26,15 +28,19 @@ class User(db.Model):
 
     @property
     def password(self):
-        raise AttributeError('password: write-only field')
+        raise AttributeError("password: write-only field")
 
     @password.setter
     def password(self, password):
-        self.password_hash = flask_bcrypt.generate_password_hash(password).decode('utf-8') if password else None
+        self.password_hash = (
+            flask_bcrypt.generate_password_hash(password).decode("utf-8")
+            if password
+            else None
+        )
 
     def check_password(self, password):
         return flask_bcrypt.check_password_hash(self.password_hash, password)
-    
+
     @staticmethod
     def encode_auth_token(user_id):
         """
@@ -43,15 +49,12 @@ class User(db.Model):
         """
         try:
             payload = {
-                'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1, seconds=5),
-                'iat': datetime.datetime.utcnow(),
-                'sub': user_id
+                "exp": datetime.datetime.utcnow()
+                + datetime.timedelta(days=1, seconds=5),
+                "iat": datetime.datetime.utcnow(),
+                "sub": user_id,
             }
-            return jwt.encode(
-                payload,
-                key,
-                algorithm='HS256'
-            )
+            return jwt.encode(payload, key, algorithm="HS256")
         except Exception as e:
             return e
 
@@ -70,9 +73,9 @@ class User(db.Model):
             # else:
             #     return payload['sub']
         except jwt.ExpiredSignatureError:
-            return 'Signature expired. Please log in again.'
+            return "Signature expired. Please log in again."
         except jwt.InvalidTokenError:
-            return 'Invalid token. Please log in again.'
+            return "Invalid token. Please log in again."
 
     def __repr__(self):
         return "<User '{}'>".format(self.username)

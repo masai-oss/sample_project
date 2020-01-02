@@ -5,20 +5,19 @@ from flask import Flask, Blueprint, request
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from flask_login import LoginManager
-from flask_admin import Admin
-from flask_jwt_extended import JWTManager
+
+# from flask_jwt_extended import JWTManager
 
 from .settings import config_by_name
 from app.main.utils.LogSetup import LogSetup
 
 logs = LogSetup()
 db = SQLAlchemy()
-admin = Admin()
+# admin = Admin()
 flask_bcrypt = Bcrypt()
-login_manager = LoginManager()
-flask_jwt_manager = JWTManager()
-api_blueprint = Blueprint('api', __name__)
+# login_manager = LoginManager()
+# flask_jwt_manager = JWTManager()
+api_blueprint = Blueprint("api", __name__)
 api = Api(api_blueprint)
 
 
@@ -35,7 +34,6 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config_by_name[config_name])
     add_extentions(app=app)
-
 
     @app.after_request
     def after_request(response):
@@ -57,12 +55,12 @@ def create_app(config_name):
 
     return app
 
+
 def add_extentions(app):
     # api.init_app(app)
     db.init_app(app)
     logs.init_app(app)
     flask_bcrypt.init_app(app)
-    login_manager.init_app(app)
-    admin.init_app(app)
-    flask_jwt_manager.init_app(app)
-    
+    # login_manager.init_app(app)
+    # admin.init_app(app)
+    # flask_jwt_manager.init_app(app)
