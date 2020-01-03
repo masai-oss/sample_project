@@ -3,7 +3,7 @@
 ## Requirements
 1. Setup the database server based on the project requirement
 
-For MySQL installation refer to [this](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04) link.
+   For MySQL installation refer to [this](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04) link.
 
 ### After cloning follow the steps to setup
 
@@ -56,7 +56,7 @@ For MySQL installation refer to [this](https://www.digitalocean.com/community/tu
 ##### To change the DB settings
 
 1. Create data-base in respective server
-2. Open the `settings.py` in the src/server/app/main/ folder
+2. Open the `settings.py` in the `src/server/app/main/ `
 3. Change the database URI in `SQLALCHEMY_DATABASE_URI` based on the development env
 
 ##### To create migrations folder
@@ -230,8 +230,8 @@ from flask import g
 oauth = OAuth()
 
 github = oauth.remote_app('github',
-                          consumer_key="c1d53a4b044962c3379a",
-                          consumer_secret="a2b7acacd1b94dde26fc1dae18b8c6e7f9e1f22f",
+                          consumer_key="",
+                          consumer_secret="",
                           request_token_params={"scope": "user:email"},
                           base_url="https://api.github.com/",
                           request_token_url=None,
@@ -302,3 +302,8 @@ Add the required tokens/credentials as specified under `SECRET_KEYS` in `setting
    ```
 
    
+
+### Few things to keep in mind
+
+1. Run the command `make clean`to clear out all the `__pycache__` folders and files, before you psuh files to github
+2. Follow `pep8` rules to avoid commit issues
