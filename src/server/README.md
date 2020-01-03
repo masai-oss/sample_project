@@ -3,6 +3,8 @@
 ## Requirements
 1. Setup the database server based on the project requirement
 
+For MySQL installation refer to [this](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04) link.
+
 ### After cloning follow the steps to setup
 
 1. Create virtual environment with `pipenv/virtualenv` for python version 3.7.3 (or higher), visit this [link](https://github.com/masai-oss/open-template/wiki/Virtual-Environment-Guide) for Virtualenv Guide.
