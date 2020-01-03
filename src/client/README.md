@@ -1,5 +1,33 @@
 # React Project Template
 
+## Folder structure:
+
+```
+├── /build/                     # compiled output
+├── /docs/                      # Documentation files
+├── /node_modules/              # 3rd party lib
+├── /public/                    # Static files 
+├── /src/                       # The source code of the application
+├───── /components/            # React components
+├──────├──────/admin           # dashboard, admin
+├──────├──────/common          # shared components
+├──────├──────/icons           # icons
+├──────├──────/news            # news specific components
+├──────├──────/static          # static page
+├────── redux/                 # redux (Seperate into sub folders based on functions as well as complexity rises)
+├──────├──────/actions         # action types, action creators
+├──────├──────/reducers        # reducers
+├──────├──────store.js         # store.js
+├────── /utils/                # server schema and data models
+├────── /routes/               # Routes/Page files
+├────── /clientScript.js       # Client-side startup script
+├────── /config.js             # application settings
+├──────  ...                   
+├── /test/                     # Unit tests
+├── package.json                
+└── yarn.lock          
+```
+
 ## Instructions
 
 1. Install the necessary dependencies.
