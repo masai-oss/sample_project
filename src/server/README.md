@@ -304,3 +304,38 @@ Add the required tokens/credentials as specified under `SECRET_KEYS` in `setting
    ```
 
    
+### Few things to keep in mind
+
+1. Run the command `make clean`to clear out all the `__pycache__` folders and files, before you psuh files to github
+
+2. Follow `pep8` rules to avoid commit issues including the docstrings in google format
+
+   Example for methods:
+
+   ```python
+     """method to add todo to the model Todo
+       Args:
+           data (dict): data which needs to be stored into Todo table
+                       using Todo model
+       Returns:
+           dict: response object containing appropriate response based on the 						response from save changes,
+           int: http response code specifying the success or failure of storing data into 				table
+       """
+   ```
+
+   
+
+   Example for classes:
+
+      ```python
+ """SQLAlchemy model for Todo items
+    containing fileds id and todo_item 
+    id: unique identifier
+    todo_item: the todo item to be added to the database
+    Args:
+        db (object): SQLAlchemy object imported from main 
+    """
+      ```
+
+3. Add docstrings to the file to describe the function of the file in brief
+4. Add your static files to `server/src/app/main/static` folder
