@@ -5,14 +5,12 @@
 
 ### After cloning follow the steps to setup
 
-1. Create virtual environment with `pipenv/virtualenv` for python version 3.7.3 (or higher)
+1. Create virtual environment with `pipenv/virtualenv` for python version 3.7.3 (or higher), visit this [link](https://github.com/masai-oss/open-template/wiki/Virtual-Environment-Guide) for Virtualenv Guide.
 2. Activate the virtual environment `source <virtual_environment_name>/bin/activate`
 3. `pip install -r requirements.txt`
 
 ### To start the server
 ``` python manage.py run ```
-
-
 
 ### To add the models
 
@@ -51,14 +49,12 @@
    from app.main.models.user import User
    ```
 
-3. run the db migrate and upgrade command again
-
 ### To migrate the database
 
 ##### To change the DB settings
 
 1. Create data-base in respective server
-2. Open the `settings.py` in the root folder
+2. Open the `settings.py` in the src/server/app/main/ folder
 3. Change the database URI in `SQLALCHEMY_DATABASE_URI` based on the development env
 
 ##### To create migrations folder

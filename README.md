@@ -22,11 +22,15 @@ https://github.com/masai-oss/open-template/wiki/Issue-Template
 ​
 ### Pull Request Guide
 https://github.com/masai-oss/open-template/wiki/Pull-Request-Template
+
+### Virtual Environment Guide
+https://github.com/masai-oss/open-template/wiki/Virtual-Environment-Guide
 ​
 ### Backend Guide
 https://github.com/masai-oss/open-template/wiki/Backend-Guide
 ​
 ### Frontend Guide
+https://github.com/masai-oss/open-template/wiki/Frontend-Guide
 https://github.com/masai-oss/open-template/wiki/Cypress-Guide
 https://github.com/masai-oss/open-template/wiki/OAuth-Guide
 ​
