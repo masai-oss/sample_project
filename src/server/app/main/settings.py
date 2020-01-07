@@ -50,7 +50,7 @@ class DevelopmentConfig(Config):
     # uncomment the line below to use postgres
     # SQLALCHEMY_DATABASE_URI = postgres_local_base
     # uncomment the line below to use mysql
-    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://<user>:<password>@<host>:<port>/<database_name>'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Anuj@1996@localhost/masai_oss'
 
     DEBUG = True
     # SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(
