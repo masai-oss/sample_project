@@ -1,7 +1,11 @@
 import React from "react";
 
 const NoMatch = () => {
-  return <div>ERROR: PAGE NOT FOUND</div>;
+  return (
+    <div>
+      <img src="./images/pageNotFound.jpg" alt="page not found" />
+    </div>
+  );
 };
 
 export default NoMatch;
