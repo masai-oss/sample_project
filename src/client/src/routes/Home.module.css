@@ -14,18 +14,18 @@
 }
 
 .header {
-  background-color: #282c34;
+  background-color: #b6b6b6;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .link {
-  color: #61dafb;
+  color: red;
 }
 
 @keyframes reactLogo-spin {
